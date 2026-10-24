@@ -1,0 +1,10 @@
+data/
+cache/
+optuna_studies/
+*.db
+*.npy
+*.mp4
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store
