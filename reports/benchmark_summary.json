@@ -1,0 +1,196 @@
+{
+  "aggregate": {
+    "matches": 10,
+    "total_possessions": 4105,
+    "total_evaluated_minutes": 947.7,
+    "mean_possession_s_avg": 8.28,
+    "pct_D_avg": 41.92,
+    "competition_public_5min_reference": {
+      "possessions": 17,
+      "mean_possession_s": 14.2,
+      "pct_D_approx": 20
+    }
+  },
+  "per_match": {
+    "metrica_1": {
+      "frames": 145006,
+      "evaluated_frames": 142074,
+      "possessions": 352,
+      "possessions_per_5min": 18.58,
+      "mean_possession_s": 9.69,
+      "median_possession_s": 5.08,
+      "pct_H": 30.97,
+      "pct_A": 29.04,
+      "pct_D": 40.0,
+      "evaluated_minutes": 94.72,
+      "slots": 28,
+      "ball_missing_pct": 39.14,
+      "pitch": [
+        105.0,
+        68.0
+      ]
+    },
+    "metrica_2": {
+      "frames": 141156,
+      "evaluated_frames": 140114,
+      "possessions": 314,
+      "possessions_per_5min": 16.81,
+      "mean_possession_s": 11.05,
+      "median_possession_s": 6.22,
+      "pct_H": 32.34,
+      "pct_A": 29.55,
+      "pct_D": 38.11,
+      "evaluated_minutes": 93.41,
+      "slots": 26,
+      "ball_missing_pct": 41.01,
+      "pitch": [
+        105.0,
+        68.0
+      ]
+    },
+    "metrica_3": {
+      "frames": 143761,
+      "evaluated_frames": 142698,
+      "possessions": 378,
+      "possessions_per_5min": 19.87,
+      "mean_possession_s": 10.68,
+      "median_possession_s": 5.48,
+      "pct_H": 36.86,
+      "pct_A": 33.89,
+      "pct_D": 29.25,
+      "evaluated_minutes": 95.13,
+      "slots": 35,
+      "ball_missing_pct": 32.22,
+      "pitch": [
+        105.0,
+        68.0
+      ]
+    },
+    "idsse_J03WPY": {
+      "frames": 146211,
+      "evaluated_frames": 145149,
+      "possessions": 421,
+      "possessions_per_5min": 21.75,
+      "mean_possession_s": 7.74,
+      "median_possession_s": 3.84,
+      "pct_H": 35.27,
+      "pct_A": 20.85,
+      "pct_D": 43.88,
+      "evaluated_minutes": 96.77,
+      "slots": 31,
+      "ball_missing_pct": 0.0,
+      "pitch": [
+        105.0,
+        68.0
+      ]
+    },
+    "idsse_J03WMX": {
+      "frames": 145967,
+      "evaluated_frames": 145752,
+      "possessions": 511,
+      "possessions_per_5min": 26.29,
+      "mean_possession_s": 6.68,
+      "median_possession_s": 3.0,
+      "pct_H": 26.83,
+      "pct_A": 31.74,
+      "pct_D": 41.43,
+      "evaluated_minutes": 97.17,
+      "slots": 32,
+      "ball_missing_pct": 0.0,
+      "pitch": [
+        105.0,
+        68.0
+      ]
+    },
+    "idsse_J03WN1": {
+      "frames": 141561,
+      "evaluated_frames": 141508,
+      "possessions": 500,
+      "possessions_per_5min": 26.5,
+      "mean_possession_s": 5.47,
+      "median_possession_s": 3.12,
+      "pct_H": 25.74,
+      "pct_A": 22.58,
+      "pct_D": 51.68,
+      "evaluated_minutes": 94.34,
+      "slots": 29,
+      "ball_missing_pct": 0.0,
+      "pitch": [
+        105.0,
+        68.0
+      ]
+    },
+    "idsse_J03WOH": {
+      "frames": 137214,
+      "evaluated_frames": 135572,
+      "possessions": 402,
+      "possessions_per_5min": 22.24,
+      "mean_possession_s": 7.16,
+      "median_possession_s": 3.94,
+      "pct_H": 28.86,
+      "pct_A": 24.21,
+      "pct_D": 46.93,
+      "evaluated_minutes": 90.38,
+      "slots": 32,
+      "ball_missing_pct": 0.0,
+      "pitch": [
+        105.0,
+        68.0
+      ]
+    },
+    "idsse_J03WQQ": {
+      "frames": 142345,
+      "evaluated_frames": 141898,
+      "possessions": 401,
+      "possessions_per_5min": 21.19,
+      "mean_possession_s": 8.41,
+      "median_possession_s": 4.68,
+      "pct_H": 26.1,
+      "pct_A": 33.35,
+      "pct_D": 40.55,
+      "evaluated_minutes": 94.6,
+      "slots": 31,
+      "ball_missing_pct": 0.0,
+      "pitch": [
+        105.0,
+        68.0
+      ]
+    },
+    "idsse_J03WOY": {
+      "frames": 142536,
+      "evaluated_frames": 142381,
+      "possessions": 456,
+      "possessions_per_5min": 24.02,
+      "mean_possession_s": 6.69,
+      "median_possession_s": 3.6,
+      "pct_H": 26.56,
+      "pct_A": 27.02,
+      "pct_D": 46.42,
+      "evaluated_minutes": 94.92,
+      "slots": 32,
+      "ball_missing_pct": 0.0,
+      "pitch": [
+        105.0,
+        68.0
+      ]
+    },
+    "idsse_J03WR9": {
+      "frames": 146810,
+      "evaluated_frames": 144422,
+      "possessions": 370,
+      "possessions_per_5min": 19.21,
+      "mean_possession_s": 9.22,
+      "median_possession_s": 4.24,
+      "pct_H": 36.86,
+      "pct_A": 22.21,
+      "pct_D": 40.93,
+      "evaluated_minutes": 96.28,
+      "slots": 31,
+      "ball_missing_pct": 0.0,
+      "pitch": [
+        105.0,
+        68.0
+      ]
+    }
+  }
+}
