@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from mtah_bench import convert as C  # noqa: E402
-from mtah_bench.pff import convert_pff, pff_game_dirs  # noqa: E402
+from mtah_bench.pff import convert_pff, pff_extra_stats, pff_game_dirs, pff_summary  # noqa: E402
 from mtah_bench.skillcorner import SC_MATCHES, convert_skillcorner  # noqa: E402
 
 ALL = list(C.METRICA_GAMES) + [f"idsse_{m}" for m in C.IDSSE_MATCHES] + [f"skillcorner_{m}" for m in SC_MATCHES]
@@ -31,12 +31,13 @@ def main(argv=None) -> None:
     ap.add_argument("--data", type=Path, default=ROOT / "data")
     ap.add_argument("--cache", type=Path, default=ROOT / "cache")
     ap.add_argument("--report", type=Path, default=ROOT / "reports" / "benchmark_summary.json")
+    ap.add_argument("--pff-report", type=Path, default=ROOT / "reports" / "pff_summary.json")
     a = ap.parse_args(argv)
 
     if a.only is None:
         a.only = [n for n in ALL if (a.data / ("metrica" if n.startswith("metrica") else n.split("_")[0]) /
                                      (C.METRICA_GAMES.get(n) or n.split("_", 1)[1])).exists()]
-    a.only = a.only + [f"pff_{g}" for g in pff_game_dirs(a.data) if f"pff_{g}" not in a.only] if a.only else a.only
+        a.only += [f"pff_{g}" for g in pff_game_dirs(a.data)]  # default run only
     for n in a.only:
         if n not in ALL and not n.startswith("pff_"):
             ap.error(f"unknown match {n}")
@@ -63,8 +64,20 @@ def main(argv=None) -> None:
         else:
             p = C.convert_idsse(a.data, n.split("_", 1)[1], a.cache)
         per_match[n] = C.stats_of_npz(p)
+        if n.startswith("pff_"):
+            per_match[n].update(pff_extra_stats(p))
         print(f"{n}: {per_match[n]}  [{time.time() - t:.0f}s]", flush=True)
 
+    # PFF has its own report (it never overwrites the summary of the other datasets)
+    pff = {n: m for n, m in per_match.items() if n.startswith("pff_")}
+    other = {n: m for n, m in per_match.items() if n not in pff}
+    if pff:
+        a.pff_report.parent.mkdir(parents=True, exist_ok=True)
+        a.pff_report.write_text(json.dumps(pff_summary(pff), indent=2), encoding="utf-8")
+        print(f"wrote {a.pff_report}")
+    if not other:
+        return
+    per_match = other
     agg = {
         "matches": len(per_match),
         "total_possessions": sum(m["possessions"] for m in per_match.values()),
