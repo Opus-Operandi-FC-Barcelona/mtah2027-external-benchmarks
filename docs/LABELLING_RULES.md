@@ -72,12 +72,36 @@ is not counted; compare `possessions_per_5min`, not totals. (3) Boundaries are a
 10 fps source (0.1 s), the phase boundaries being annotated by SkillCorner's pipeline.
 The `observed` array in the npz marks the frames with information.
 
-## PFF FC World Cup 2022 (gated)
+## PFF FC World Cup 2022 (tracking + event data)
 
-Same rule as IDSSE: the tracking file's own `game_event` records (kloppy 3.18 maps ball-out /
-period-end -> dead, kick-off / on-the-ball -> alive, `home_ball` -> owner) feed
-`derive_ball_status_labels`. Converter exists (`src/mtah_bench/pff.py`) but has not been run on
-real files: the data needs a web form (see docs/DATASETS.md).
+Tracking is 29.97 fps (resampled to 25 fps by nearest frame on the video clock, per period) and
+centred metres (converted to corner-origin). Labels come from PFF's own event data
+(`events.json`, same video clock as the tracking: `startTime` == `videoTimeMs / 1000`), replayed
+per period in time order. Implementation: `src/mtah_bench/pff.py`
+(`normalise_events`, `derive_pff_state_changes`, `derive_pff_labels`), unit-tested in
+`tests/test_pff_labels.py`. No label is produced by hand and none is tuned.
+
+| Event (`gameEvents.gameEventType`) | Effect |
+|---|---|
+| `FIRSTKICKOFF` / `SECONDKICKOFF` / `THIRDKICKOFF` / `FOURTHKICKOFF` | start of the period: state := team of the kick-off (the tracking file starts at this moment) |
+| `OTB` (a player on the ball), any `setpieceType` | at `startTime`, state := team of the event (`homeTeam` -> `H`, else `A`). A pass stays with the passer until the opponent's next `OTB`, as in the Metrica rules. |
+| `OUT` (ball out of play: touch, whistle, goal; `outType` T/W/H/A) | at `startTime`, state := `D` |
+| `OTB` with `setpieceType` != `O` (throw-in, free kick, goal kick, corner, kick-off, drop ball, penalty) while still alive | no `OUT` was recorded: dead from the foul that was *given* (`foulType == 'I'` and on-field outcome != `F`), else from the end of the previous touch, until this restart (`restarts_without_out_event` in `pff_summary.json`; 41 of 6,376 restarts over the 64 games) |
+| `OTB` with `setpieceType == O` after a foul | clears a pending foul stop (advantage `A` and missed infringements `M` never stop play) |
+| `END` | period end; frames after it are `X` (so are frames before the kick-off; the files hardly contain any) |
+| `SUB`, `ON`, `OFF`, `FOUL` (additional foul row), `G` (woodwork), rows with `initialNonEvent == true` | ignored |
+
+Per frame: `D` while dead, the owner team while alive. Boundaries are as accurate as PFF's event
+timestamps (a few frames); there is no tracking-derived ball-status channel as in IDSSE.
+
+Caveats, deliberately not tuned away: (1) the ball is untracked in about a third of the frames and
+`ESTIMATED` (inferred from the players) in another third; `ball_xy` carries every coordinate PFF
+gives (VISIBLE and ESTIMATED), and the npz adds `ball_visible[N]` / `players_visible[N,S]` for the
+VISIBLE ones. In `D` frames the ball is usually missing (4-14 % visible per match).
+(2) Players are tracked per jersey number, so a slot is a (team, jersey) pair, not a track id; the
+ids in `player_ids` are the roster player ids. (3) `OUT` events are recorded when the ball leaves
+the field or play is whistled; long gaps before a restart (VAR, injuries, goal celebrations) are
+therefore `D`, which is why `D` is 28-52 % of the evaluated time, in line with IDSSE. Possessions per match are 288-517; the mean spell is 6.4-14.3 s, above the IDSSE range (5.5-11 s) in many matches and below 314 possessions in about a third of them; these are reported as flags in `reports/pff_summary.json`, not tuned.
 
 ## Sanity statistics (not tuning targets)
 

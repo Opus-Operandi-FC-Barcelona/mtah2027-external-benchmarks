@@ -13,10 +13,10 @@ public 5 minutes are a pipeline check, not a tuning set — so every number in t
 | IDSSE Bundesliga open data (Bassek et al.) | Positional data + official events, 7 matches | Ball-status and possession channels shipped with the data |
 
 | SkillCorner Open Data (A-League 24/25, broadcast tracking 10 fps), 20 matches | `phases_of_play` (team in possession; gaps = dead; off-screen = `X`) |
-| PFF FC World Cup 2022 (gated by a web form, converter ready) | ball-status/possession from the tracking game events |
+| PFF FC World Cup 2022, 64 matches (tracking 29.97 fps + event data; accepted terms, local only) | `OTB` owner / `OUT` dead / set-piece restarts from the event data |
 
 Licences, access and the steps for gated data: [docs/DATASETS.md](docs/DATASETS.md). Loaded with
-`kloppy` (Metrica, IDSSE, PFF) or plain JSON (SkillCorner). No labels are produced by hand.
+`kloppy` (Metrica, IDSSE) or plain JSON (SkillCorner, PFF). No labels are produced by hand.
 
 ## Quick start (exact commands)
 
@@ -28,6 +28,7 @@ python scripts/download_skillcorner.py --matches all  # -> data/skillcorner/ (~1
 python scripts/build_benchmark.py                    # -> cache/<match>.npz + reports/benchmark_summary.json
 python scripts/build_benchmark.py --download         # same, downloading first
 python scripts/build_benchmark.py --only metrica_1 idsse_J03WPY   # subset
+python scripts/build_benchmark.py --only pff_3812      # PFF game (data/pff/<id>/, see docs/DATASETS.md); -> reports/pff_summary.json
 python -m pytest -q                                  # labelling-rule tests (no network)
 ```
 
@@ -41,7 +42,8 @@ is behind an AWS WAF challenge and returns empty bodies, so `download_idsse.py` 
 
 `players_xy[N,S,2]`, `team_of_slot[S]` (0 home/1 away), `ball_xy[N,2]`, `fps`, `pitch=(L,W)`,
 `period_bounds[P,2]` (inclusive frame indices), `gt[N]` in `H/A/D/X`, plus `frame_ids`, `player_ids`.
-SkillCorner files add `observed[N]` (players on screen) and `players_detected[N,S]`.
+SkillCorner files add `observed[N]` (players on screen) and `players_detected[N,S]`; PFF files add
+`ball_visible[N]`, `players_visible[N,S]`, `period[N]`, `fps_source`, `label_info`.
 Labelling rules: [docs/LABELLING_RULES.md](docs/LABELLING_RULES.md).
 
 ## Pipeline
