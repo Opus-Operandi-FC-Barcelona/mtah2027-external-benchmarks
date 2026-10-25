@@ -5,7 +5,7 @@ cloud LLM). Raw files are treated as untrusted input (parsed with `json`/`csv`/k
 
 | Dataset | Matches | Rate | Ball | Label source | Licence / terms | Access | Status |
 |---|---|---|---|---|---|---|---|
-| Metrica Sports sample-data | 3 | 25 | tracked, missing while dead | events (derived) | no licence file in the sample-data repo (README grants free use for learning/research; terms not stated explicitly, verify before redistribution) | open, GitHub | in cache |
+| Metrica Sports sample-data | 3 | 25 | tracked, missing while dead | events (derived) | no licence file in the sample-data repo (terms not stated; verify before any redistribution) | open, GitHub | in cache |
 | IDSSE Bundesliga (Bassek et al., Sci Data 12, 195, 2025) | 7 | 25 | tracked | official ball-status + possession channels | CC BY 4.0 | open, figshare | in cache |
 | SkillCorner Open Data (A-League 2024/25) | 20 in the repo (README says 10) | 10 (broadcast) | ~75 % visible | `phases_of_play.csv` (+ per-frame possession) | MIT, asks to credit SkillCorner | open, GitHub (+ Git LFS) via `scripts/download_skillcorner.py` | in cache |
 | PFF FC World Cup 2022 | 64 | ~30 | tracked, visibility flag | game events in tracking (kloppy PFF reader) | PFF terms, accepted on a web form; see note | **needs user action** | converter ready, untested on real data |
