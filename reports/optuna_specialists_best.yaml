@@ -1,0 +1,36 @@
+transition_matrix:
+  ha_closed: -8.4694
+  ha_open: -0.339
+  touch_halfwidth: 2
+  touch_min_score: 0.8491
+  touch_both_dist_m: 1.3145
+  require_both_teams: false
+  touch_gate_halfwidth: 0
+  ha_occluded: -5.5882
+  occlusion_min_s: 3.4508
+  dead_closed: -11.6308
+  dead_open: -1.0354
+  d_exit_closed: -12.5231
+  d_exit_open: -0.6258
+  dead_ramp:
+  - 0.4694
+  - 0.7651
+  alive_ramp:
+  - 0.6072
+  - 0.9444
+spell_optimizer:
+  micro_poss_s: 1.217
+  keep_min_visible_frac: 0.3935
+  keep_min_touches: 1
+  touch_min_score: 0.8845
+  min_dead_s: 0.251
+  min_isolated_poss_s: 1.9347
+  bridge_min_poss_s: 17.409
+  bridge_min_dead_s: 2.5642
+  bridge_dead_threshold: 0.55
+  bridge_requires_geometry: true
+specialist_fusion:
+  scale_visible: 0.211
+  scale_hidden: 0.498
+  blend_visible: 0.2458
+  blend_hidden: 0.0342

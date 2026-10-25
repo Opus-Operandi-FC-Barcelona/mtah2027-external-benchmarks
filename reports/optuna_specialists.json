@@ -1,0 +1,157 @@
+{
+  "route": "specialists",
+  "matches": [
+    "idsse_J03WMX",
+    "idsse_J03WN1",
+    "idsse_J03WOH",
+    "idsse_J03WOY",
+    "idsse_J03WPY",
+    "idsse_J03WQQ",
+    "idsse_J03WR9"
+  ],
+  "search_seeds": [
+    0,
+    1
+  ],
+  "n_trials": 300,
+  "search_seconds": 649.0,
+  "seconds_per_trial": 2.16,
+  "default": {
+    "spellF1": 0.6049734488918783,
+    "macroF1": 0.9001632377224834,
+    "per_match": [
+      0.5432971370038688,
+      0.5630184733356571,
+      0.6334113879169947,
+      0.6127004781346199,
+      0.6345793139688889,
+      0.6304471610535406,
+      0.6173601908295787
+    ],
+    "params": {
+      "ha_closed": -11.5,
+      "ha_open": -1.4,
+      "touch_halfwidth": 5,
+      "touch_min_score": 0.5,
+      "touch_both_dist_m": 2.0,
+      "require_both_teams": false,
+      "touch_gate_halfwidth": 2,
+      "ha_occluded": -6.0,
+      "occlusion_min_s": 2.0,
+      "dead_closed": -8.0,
+      "dead_open": -1.5,
+      "d_exit_closed": -9.0,
+      "d_exit_open": -2.0,
+      "micro_poss_s": 1.2,
+      "keep_min_visible_frac": 0.5,
+      "keep_min_touches": 2,
+      "sp_touch_min_score": 0.5,
+      "min_dead_s": 0.6,
+      "min_isolated_poss_s": 0.8,
+      "bridge_min_poss_s": 25.0,
+      "bridge_min_dead_s": 4.0,
+      "bridge_dead_threshold": 0.6,
+      "bridge_requires_geometry": true,
+      "scale_visible": 0.5,
+      "scale_hidden": 0.5,
+      "blend_visible": 0.0,
+      "blend_hidden": 0.0,
+      "dead_ramp_lo": 0.3,
+      "dead_ramp_w": 0.39999999999999997,
+      "alive_ramp_lo": 0.5,
+      "alive_ramp_w": 0.4
+    }
+  },
+  "best": {
+    "trial": 263,
+    "spellF1": 0.6275403812731775,
+    "macroF1": 0.9027758582614291,
+    "per_match": [
+      0.574301699478378,
+      0.5929446809387853,
+      0.6523567299752271,
+      0.6276974316076462,
+      0.6579819636884855,
+      0.6399334389350229,
+      0.6475667242886977
+    ],
+    "params": {
+      "ha_closed": -8.46942962529257,
+      "ha_open": -0.3389980228925584,
+      "touch_halfwidth": 2,
+      "touch_min_score": 0.8490594177541471,
+      "touch_both_dist_m": 1.314489022401204,
+      "require_both_teams": false,
+      "touch_gate_halfwidth": 0,
+      "ha_occluded": -5.588233740512906,
+      "occlusion_min_s": 3.4507552054670705,
+      "dead_closed": -11.630827804898793,
+      "dead_open": -1.035353071279135,
+      "dead_ramp_lo": 0.46941854911582187,
+      "dead_ramp_w": 0.29569745956897175,
+      "d_exit_closed": -12.523115116893017,
+      "d_exit_open": -0.625839920622355,
+      "alive_ramp_lo": 0.6072362431701873,
+      "alive_ramp_w": 0.33715577312954165,
+      "micro_poss_s": 1.2169878200482978,
+      "keep_min_visible_frac": 0.3934763197288262,
+      "keep_min_touches": 1,
+      "sp_touch_min_score": 0.8844867176993526,
+      "min_dead_s": 0.2510185314059449,
+      "min_isolated_poss_s": 1.9347205284729267,
+      "bridge_min_poss_s": 17.409004323714196,
+      "bridge_min_dead_s": 2.5642316303615824,
+      "bridge_dead_threshold": 0.5500430273151772,
+      "bridge_requires_geometry": true,
+      "scale_visible": 0.21097240248487198,
+      "scale_hidden": 0.49799072131163086,
+      "blend_visible": 0.24582853173241345,
+      "blend_hidden": 0.03417957367707039
+    }
+  },
+  "nested_honest": {
+    "spellF1": 0.6244771468733182,
+    "macroF1": 0.9026287861868783,
+    "gain_vs_default": 0.019503697981439916,
+    "selected_trials": [
+      298,
+      263,
+      263,
+      236,
+      263,
+      263,
+      228
+    ]
+  },
+  "check_seeds": {
+    "seeds": [
+      2
+    ],
+    "default_spellF1": 0.6079003801380777,
+    "best_spellF1": 0.6262944390792811,
+    "nested_spellF1": 0.6266644895671382,
+    "default_macroF1": 0.9007207327984188,
+    "best_macroF1": 0.9030369372721336,
+    "per_match_default": [
+      0.5430246189917937,
+      0.5470911086717892,
+      0.6724795640326976,
+      0.609,
+      0.6032967032967033,
+      0.639686684073107,
+      0.6407239819004525
+    ],
+    "per_match_best": [
+      0.5631768953068592,
+      0.5711731843575418,
+      0.6901960784313725,
+      0.6051413881748072,
+      0.6429958391123439,
+      0.660752688172043,
+      0.650625
+    ]
+  },
+  "default_trial_in_study_spellF1": 0.6049734488918783,
+  "recommend_change": false,
+  "recommend_rule": "nested honest gain >= 0.02 spellF1 and best beats default on the unused seeds"
+}
