@@ -49,6 +49,36 @@ ball while it is dead. Over the three games, ball-missing is 92-99 % of `D` fram
 Timing precision is bounded by event timestamps (typically a few frames), which is
 adequate for tuning but means IDSSE is the better benchmark for exact boundaries.
 
+## SkillCorner A-League open data (phases of play -> labels)
+
+Broadcast tracking at 10 fps (resampled to 25 fps, nearest neighbour). All 22 players are
+present in a frame when the pitch is on screen (off-screen players are extrapolated,
+`is_detected=False`, kept in `players_detected`); frames where the broadcast shows something else
+(replays, close-ups) have an empty `player_data`. Implementation: `src/mtah_bench/skillcorner.py`.
+
+* frame outside a period, or with no tracked players (`observed=False`) -> `X` (no information;
+  it is NOT assumed dead);
+* observed and inside a `phases_of_play` row -> team of `team_in_possession_id` (`H`/`A`);
+* observed and between phases -> `D`. Phases are contiguous while play is live; every gap
+  between consecutive phases is >= 1.8 s and coincides with an interruption (throw-in, free
+  kick, goal kick, corner, goal). In these frames the ball is visible (100 % in the checked
+  match) and the per-frame `possession.player_id` is set in only ~7 % of them.
+
+Caveats, deliberately not tuned away: (1) the per-frame `possession.group` agrees with the phase
+team in ~80 % of the frames (it flips on every brief duel; `chaotic` phases agree in 47 %); the
+phase team is the smoother, spell-level label and is used. (2) Possession counts are lower than in
+full-view matches because `X` runs (about 25-40 % of the period) cut spells and unobserved time
+is not counted; compare `possessions_per_5min`, not totals. (3) Boundaries are accurate to the
+10 fps source (0.1 s), the phase boundaries being annotated by SkillCorner's pipeline.
+The `observed` array in the npz marks the frames with information.
+
+## PFF FC World Cup 2022 (gated)
+
+Same rule as IDSSE: the tracking file's own `game_event` records (kloppy 3.18 maps ball-out /
+period-end -> dead, kick-off / on-the-ball -> alive, `home_ball` -> owner) feed
+`derive_ball_status_labels`. Converter exists (`src/mtah_bench/pff.py`) but has not been run on
+real files: the data needs a web form (see docs/DATASETS.md).
+
 ## Sanity statistics (not tuning targets)
 
 The competition's public 5 minutes show 17 possessions, mean 14.2 s, ~20 % `D`.
