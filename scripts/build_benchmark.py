@@ -17,19 +17,24 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from mtah_bench import convert as C  # noqa: E402
+from mtah_bench.skillcorner import SC_MATCHES, convert_skillcorner  # noqa: E402
 
-ALL = list(C.METRICA_GAMES) + [f"idsse_{m}" for m in C.IDSSE_MATCHES]
+ALL = list(C.METRICA_GAMES) + [f"idsse_{m}" for m in C.IDSSE_MATCHES] + [f"skillcorner_{m}" for m in SC_MATCHES]
 
 
 def main(argv=None) -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--download", action="store_true", help="fetch raw data first (idempotent)")
-    ap.add_argument("--only", nargs="*", default=ALL, choices=ALL)
+    ap.add_argument("--only", nargs="*", default=None, choices=ALL,
+                    help="default: every match whose raw data is present under --data")
     ap.add_argument("--data", type=Path, default=ROOT / "data")
     ap.add_argument("--cache", type=Path, default=ROOT / "cache")
     ap.add_argument("--report", type=Path, default=ROOT / "reports" / "benchmark_summary.json")
     a = ap.parse_args(argv)
 
+    if a.only is None:
+        a.only = [n for n in ALL if (a.data / ("metrica" if n.startswith("metrica") else n.split("_")[0]) /
+                                     (C.METRICA_GAMES.get(n) or n.split("_", 1)[1])).exists()]
     if a.download:
         sys.path.insert(0, str(ROOT / "scripts"))
         from download_idsse import main as dl_idsse
@@ -44,8 +49,12 @@ def main(argv=None) -> None:
     per_match = {}
     for n in a.only:
         t = time.time()
-        p = (C.convert_metrica(a.data, n, a.cache) if n.startswith("metrica")
-             else C.convert_idsse(a.data, n.split("_", 1)[1], a.cache))
+        if n.startswith("metrica"):
+            p = C.convert_metrica(a.data, n, a.cache)
+        elif n.startswith("skillcorner_"):
+            p = convert_skillcorner(a.data, n.split("_", 1)[1], a.cache)
+        else:
+            p = C.convert_idsse(a.data, n.split("_", 1)[1], a.cache)
         per_match[n] = C.stats_of_npz(p)
         print(f"{n}: {per_match[n]}  [{time.time() - t:.0f}s]", flush=True)
 
