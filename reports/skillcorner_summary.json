@@ -1,0 +1,376 @@
+{
+  "aggregate": {
+    "matches": 20,
+    "total_possessions": 5134,
+    "total_evaluated_minutes": 1464.8,
+    "mean_possession_s_avg": 12.31,
+    "pct_D_avg": 29.18,
+    "competition_public_5min_reference": {
+      "possessions": 17,
+      "mean_possession_s": 14.2,
+      "pct_D_approx": 20
+    }
+  },
+  "per_match": {
+    "skillcorner_1874553": {
+      "frames": 150726,
+      "evaluated_frames": 110607,
+      "possessions": 253,
+      "possessions_per_5min": 17.16,
+      "mean_possession_s": 12.76,
+      "median_possession_s": 7.8,
+      "pct_H": 28.16,
+      "pct_A": 44.78,
+      "pct_D": 27.06,
+      "evaluated_minutes": 73.74,
+      "slots": 32,
+      "ball_missing_pct": 26.62,
+      "pitch": [
+        105.0,
+        68.0
+      ]
+    },
+    "skillcorner_1886347": {
+      "frames": 147626,
+      "evaluated_frames": 108650,
+      "possessions": 239,
+      "possessions_per_5min": 16.5,
+      "mean_possession_s": 13.2,
+      "median_possession_s": 7.4,
+      "pct_H": 41.58,
+      "pct_A": 31.03,
+      "pct_D": 27.39,
+      "evaluated_minutes": 72.43,
+      "slots": 29,
+      "ball_missing_pct": 26.4,
+      "pitch": [
+        104.0,
+        68.0
+      ]
+    },
+    "skillcorner_1899585": {
+      "frames": 151298,
+      "evaluated_frames": 101701,
+      "possessions": 280,
+      "possessions_per_5min": 20.65,
+      "mean_possession_s": 10.36,
+      "median_possession_s": 6.7,
+      "pct_H": 36.23,
+      "pct_A": 35.06,
+      "pct_D": 28.71,
+      "evaluated_minutes": 67.8,
+      "slots": 30,
+      "ball_missing_pct": 32.78,
+      "pitch": [
+        104.0,
+        68.0
+      ]
+    },
+    "skillcorner_1925299": {
+      "frames": 153226,
+      "evaluated_frames": 119852,
+      "possessions": 260,
+      "possessions_per_5min": 16.27,
+      "mean_possession_s": 13.53,
+      "median_possession_s": 7.16,
+      "pct_H": 44.95,
+      "pct_A": 28.42,
+      "pct_D": 26.62,
+      "evaluated_minutes": 79.9,
+      "slots": 32,
+      "ball_missing_pct": 21.78,
+      "pitch": [
+        105.0,
+        68.0
+      ]
+    },
+    "skillcorner_1927964": {
+      "frames": 147648,
+      "evaluated_frames": 111897,
+      "possessions": 205,
+      "possessions_per_5min": 13.74,
+      "mean_possession_s": 17.91,
+      "median_possession_s": 11.2,
+      "pct_H": 42.84,
+      "pct_A": 39.17,
+      "pct_D": 17.99,
+      "evaluated_minutes": 74.6,
+      "slots": 32,
+      "ball_missing_pct": 24.21,
+      "pitch": [
+        105.0,
+        68.0
+      ]
+    },
+    "skillcorner_1953632": {
+      "frames": 148098,
+      "evaluated_frames": 109785,
+      "possessions": 223,
+      "possessions_per_5min": 15.23,
+      "mean_possession_s": 14.48,
+      "median_possession_s": 7.8,
+      "pct_H": 24.26,
+      "pct_A": 49.26,
+      "pct_D": 26.48,
+      "evaluated_minutes": 73.19,
+      "slots": 30,
+      "ball_missing_pct": 25.87,
+      "pitch": [
+        105.0,
+        68.0
+      ]
+    },
+    "skillcorner_1959846": {
+      "frames": 146351,
+      "evaluated_frames": 106849,
+      "possessions": 273,
+      "possessions_per_5min": 19.16,
+      "mean_possession_s": 10.86,
+      "median_possession_s": 6.8,
+      "pct_H": 34.46,
+      "pct_A": 34.91,
+      "pct_D": 30.63,
+      "evaluated_minutes": 71.23,
+      "slots": 30,
+      "ball_missing_pct": 26.99,
+      "pitch": [
+        106.0,
+        68.0
+      ]
+    },
+    "skillcorner_1986691": {
+      "frames": 147698,
+      "evaluated_frames": 107691,
+      "possessions": 251,
+      "possessions_per_5min": 17.48,
+      "mean_possession_s": 12.11,
+      "median_possession_s": 6.6,
+      "pct_H": 32.72,
+      "pct_A": 37.84,
+      "pct_D": 29.43,
+      "evaluated_minutes": 71.79,
+      "slots": 32,
+      "ball_missing_pct": 27.09,
+      "pitch": [
+        105.0,
+        68.0
+      ]
+    },
+    "skillcorner_1996435": {
+      "frames": 144026,
+      "evaluated_frames": 108830,
+      "possessions": 236,
+      "possessions_per_5min": 16.26,
+      "mean_possession_s": 13.44,
+      "median_possession_s": 9.08,
+      "pct_H": 39.71,
+      "pct_A": 33.18,
+      "pct_D": 27.12,
+      "evaluated_minutes": 72.55,
+      "slots": 30,
+      "ball_missing_pct": 24.44,
+      "pitch": [
+        105.0,
+        68.0
+      ]
+    },
+    "skillcorner_1996436": {
+      "frames": 150673,
+      "evaluated_frames": 107660,
+      "possessions": 250,
+      "possessions_per_5min": 17.42,
+      "mean_possession_s": 10.84,
+      "median_possession_s": 6.72,
+      "pct_H": 34.05,
+      "pct_A": 28.87,
+      "pct_D": 37.09,
+      "evaluated_minutes": 71.77,
+      "slots": 31,
+      "ball_missing_pct": 28.55,
+      "pitch": [
+        104.0,
+        68.0
+      ]
+    },
+    "skillcorner_2006229": {
+      "frames": 148148,
+      "evaluated_frames": 110434,
+      "possessions": 247,
+      "possessions_per_5min": 16.77,
+      "mean_possession_s": 13.04,
+      "median_possession_s": 7.48,
+      "pct_H": 42.99,
+      "pct_A": 29.94,
+      "pct_D": 27.07,
+      "evaluated_minutes": 73.62,
+      "slots": 32,
+      "ball_missing_pct": 25.46,
+      "pitch": [
+        105.0,
+        68.0
+      ]
+    },
+    "skillcorner_2006363": {
+      "frames": 147701,
+      "evaluated_frames": 110872,
+      "possessions": 238,
+      "possessions_per_5min": 16.1,
+      "mean_possession_s": 13.56,
+      "median_possession_s": 8.72,
+      "pct_H": 40.14,
+      "pct_A": 32.64,
+      "pct_D": 27.22,
+      "evaluated_minutes": 73.91,
+      "slots": 32,
+      "ball_missing_pct": 24.93,
+      "pitch": [
+        106.0,
+        68.0
+      ]
+    },
+    "skillcorner_2007448": {
+      "frames": 145176,
+      "evaluated_frames": 110701,
+      "possessions": 228,
+      "possessions_per_5min": 15.45,
+      "mean_possession_s": 12.66,
+      "median_possession_s": 7.44,
+      "pct_H": 31.68,
+      "pct_A": 33.5,
+      "pct_D": 34.82,
+      "evaluated_minutes": 73.8,
+      "slots": 29,
+      "ball_missing_pct": 23.75,
+      "pitch": [
+        105.0,
+        68.0
+      ]
+    },
+    "skillcorner_2007721": {
+      "frames": 143876,
+      "evaluated_frames": 115742,
+      "possessions": 250,
+      "possessions_per_5min": 16.2,
+      "mean_possession_s": 13.31,
+      "median_possession_s": 7.92,
+      "pct_H": 35.02,
+      "pct_A": 36.87,
+      "pct_D": 28.11,
+      "evaluated_minutes": 77.16,
+      "slots": 32,
+      "ball_missing_pct": 19.55,
+      "pitch": [
+        104.0,
+        68.0
+      ]
+    },
+    "skillcorner_2010085": {
+      "frames": 147451,
+      "evaluated_frames": 113800,
+      "possessions": 233,
+      "possessions_per_5min": 15.36,
+      "mean_possession_s": 13.82,
+      "median_possession_s": 7.72,
+      "pct_H": 44.15,
+      "pct_A": 26.6,
+      "pct_D": 29.25,
+      "evaluated_minutes": 75.87,
+      "slots": 32,
+      "ball_missing_pct": 22.82,
+      "pitch": [
+        106.0,
+        68.0
+      ]
+    },
+    "skillcorner_2011166": {
+      "frames": 172726,
+      "evaluated_frames": 97545,
+      "possessions": 271,
+      "possessions_per_5min": 20.84,
+      "mean_possession_s": 9.92,
+      "median_possession_s": 5.72,
+      "pct_H": 29.89,
+      "pct_A": 39.0,
+      "pct_D": 31.11,
+      "evaluated_minutes": 65.03,
+      "slots": 32,
+      "ball_missing_pct": 43.53,
+      "pitch": [
+        105.0,
+        68.0
+      ]
+    },
+    "skillcorner_2013725": {
+      "frames": 164551,
+      "evaluated_frames": 112479,
+      "possessions": 311,
+      "possessions_per_5min": 20.74,
+      "mean_possession_s": 9.79,
+      "median_possession_s": 6.48,
+      "pct_H": 33.0,
+      "pct_A": 34.64,
+      "pct_D": 32.36,
+      "evaluated_minutes": 74.99,
+      "slots": 30,
+      "ball_missing_pct": 31.64,
+      "pitch": [
+        106.0,
+        68.0
+      ]
+    },
+    "skillcorner_2015213": {
+      "frames": 172851,
+      "evaluated_frames": 121359,
+      "possessions": 297,
+      "possessions_per_5min": 18.35,
+      "mean_possession_s": 10.17,
+      "median_possession_s": 6.48,
+      "pct_H": 27.21,
+      "pct_A": 35.02,
+      "pct_D": 37.77,
+      "evaluated_minutes": 80.91,
+      "slots": 32,
+      "ball_missing_pct": 29.79,
+      "pitch": [
+        106.0,
+        68.0
+      ]
+    },
+    "skillcorner_2016236": {
+      "frames": 173451,
+      "evaluated_frames": 109708,
+      "possessions": 302,
+      "possessions_per_5min": 20.65,
+      "mean_possession_s": 10.67,
+      "median_possession_s": 6.74,
+      "pct_H": 34.46,
+      "pct_A": 38.95,
+      "pct_D": 26.59,
+      "evaluated_minutes": 73.14,
+      "slots": 32,
+      "ball_missing_pct": 36.75,
+      "pitch": [
+        106.0,
+        68.0
+      ]
+    },
+    "skillcorner_2017461": {
+      "frames": 169776,
+      "evaluated_frames": 101008,
+      "possessions": 287,
+      "possessions_per_5min": 21.31,
+      "mean_possession_s": 9.75,
+      "median_possession_s": 6.0,
+      "pct_H": 42.55,
+      "pct_A": 26.67,
+      "pct_D": 30.77,
+      "evaluated_minutes": 67.34,
+      "slots": 32,
+      "ball_missing_pct": 40.51,
+      "pitch": [
+        105.0,
+        68.0
+      ]
+    }
+  }
+}
