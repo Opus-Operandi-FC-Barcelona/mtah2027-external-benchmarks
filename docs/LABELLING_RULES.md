@@ -1,7 +1,7 @@
 # Ground-truth labelling rules
 
 Labels per frame at 25 fps: `H` home possession, `A` away possession, `D` dead ball,
-`X` outside the evaluated period. No label is produced by hand. A `D` (or `X`) cuts a
+`X` outside the evaluated period. No label is produced by hand, for any of the four sources (IDSSE, Metrica, SkillCorner, PFF; 94 matches in the cache). A `D` (or `X`) cuts a
 possession: `H D H` is two possessions (same convention as the competition metric).
 Implementation: `src/mtah_bench/labels.py` (pure functions, unit-tested in `tests/`).
 

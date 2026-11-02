@@ -1,13 +1,13 @@
 # Datasets: licences, access and status
 
-All data is third-party, stored under `data/` (gitignored, never committed, never sent to a
+Inventory of `cache/` (verified from the file names): IDSSE 7 + Metrica 3 + SkillCorner 20 + PFF 64 = 94 matches.\n\nAll data is third-party, stored under `data/` (gitignored, never committed, never sent to a
 cloud LLM). Raw files are treated as untrusted input (parsed with `json`/`csv`/kloppy only).
 
 | Dataset | Matches | Rate | Ball | Label source | Licence / terms | Access | Status |
 |---|---|---|---|---|---|---|---|
 | Metrica Sports sample-data | 3 | 25 | tracked, missing while dead | events (derived) | no licence file in the sample-data repo (terms not stated; verify before any redistribution) | open, GitHub | in cache |
 | IDSSE Bundesliga (Bassek et al., Sci Data 12, 195, 2025) | 7 | 25 | tracked | official ball-status + possession channels | CC BY 4.0 | open, figshare | in cache |
-| SkillCorner Open Data (A-League 2024/25) | 20 in the repo (README says 10) | 10 (broadcast) | ~75 % visible | `phases_of_play.csv` (+ per-frame possession) | MIT, asks to credit SkillCorner | open, GitHub (+ Git LFS) via `scripts/download_skillcorner.py` | in cache |
+| SkillCorner Open Data (A-League 2024/25) | 20 in the local cache (the upstream README and the 2026-10-26 search list 10; recheck upstream) | 10 (broadcast) | ~75 % visible | `phases_of_play.csv` (+ per-frame possession) | MIT, asks to credit SkillCorner | open, GitHub (+ Git LFS) via `scripts/download_skillcorner.py` | in cache |
 | PFF FC World Cup 2022 | 64 | 29.97 (resampled to 25) | tracked ~33 % VISIBLE + ~33 % ESTIMATED, rest missing | game events in `events.json` (OTB / OUT / set pieces / fouls) | PFF terms, accepted by the user on a web form; not redistributable, `data/` stays gitignored | user downloaded it (Google Drive, 3 zips) | in cache |
 | Impect open data (Bundesliga 23/24) | - | - | - | events only | proprietary LICENSE.pdf | open | rejected: no tracking |
 | StatsBomb open data / 360, Wyscout events | - | - | - | events only | various | open | rejected: no tracking |
@@ -59,3 +59,7 @@ decoder under realistic occlusion, not as a replacement of full-view matches; do
 engine's degrader blindly on top (it is already degraded). The sweep script derives per-match
 seeds from the position in `sorted(cache/*.npz)`; the new `skillcorner_*` files sort after
 `idsse_*`/`metrica_*`, so existing seeds are unchanged.
+
+## Use in the engine and open-data search
+
+Training of the engine's specialists: IDSSE (degraded) + 20 PFF matches at weight 0.5; SkillCorner and Metrica are not used for training (SkillCorner hurt the degraded validation, Metrica's ball channel disappears while the ball is dead and would leak `D`). Metrica, SkillCorner and the rest of PFF serve as validation or diagnostics. The calibrated degrader of engine Issue #38 (see README) is applied to the full-view matches. The search for further open tracking data (2026-10-26) found nothing comparable to the Metrica exports: [DATASET_SEARCH_2026-10-26.md](DATASET_SEARCH_2026-10-26.md).
