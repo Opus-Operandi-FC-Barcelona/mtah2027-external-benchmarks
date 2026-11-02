@@ -7,17 +7,41 @@ public 5 minutes are a pipeline check, not a tuning set — so every number in t
 
 ## Datasets
 
-| Dataset | Content | Possession labels |
+Inventory of the local `cache/` (verified from the file names): **94 matches** = IDSSE 7 + Metrica 3 +
+SkillCorner 20 + PFF 64.
+
+| Dataset | Matches | Content | Possession labels |
+|---|---|---|---|
+| Metrica Sports sample-data, Games 1-3 | 3 | Anonymised tracking (25 fps) + event data | Derived algorithmically from events (team of the last controlled event; dead between stoppage and restart) |
+| IDSSE Bundesliga open data (Bassek et al., CC BY 4.0) | 7 | Positional data + official events | Ball-status and possession channels shipped with the data |
+| SkillCorner Open Data (A-League 24/25, broadcast tracking 10 fps; MIT) | 20 | Broadcast tracking, ball mostly visible | `phases_of_play` (team in possession; gaps = dead; off-screen = `X`) |
+| PFF FC World Cup 2022 (tracking 29.97 fps + event data; terms accepted by the user, local only) | 64 | Camera-derived tracking with real occlusions (ball missing in ~1/3 of frames) | `OTB` owner / `OUT` dead / set-piece restarts from the event data |
+
+Licences, access and the steps for gated data: [docs/DATASETS.md](docs/DATASETS.md); open-data search log:
+[docs/DATASET_SEARCH_2026-10-26.md](docs/DATASET_SEARCH_2026-10-26.md) (no further Metrica-style tracking is public).
+Loaded with `kloppy` (Metrica, IDSSE) or plain JSON (SkillCorner, PFF). No labels are produced by hand, and nothing
+from the competition match is in this repository.
+
+## What the engine takes from here
+
+* **Training data of the engine's Specialists A/B**: the 7 IDSSE matches (degraded) + 20 PFF matches at weight 0.5
+  (`models/specialists*.json` in the engine).  SkillCorner was tried and left off (hurt the degraded validation).
+* **Calibrated degrader profile (engine Issue #38).**  The engine's `external_degrader_target` section turns clean
+  matches into inputs that look like the competition tracking in label-free gap statistics: log-normal ball-gap
+  durations (median 12.5 s, sigma 0.95, 5-240 s) separated by >= 9 s of visible ball, 42.4 % of the ball hidden,
+  single-player dropouts (2.4 per min, 5-30 s) and group dropouts (0.5 per min, 3-6 players for 5-20 s).  The previous
+  profile is kept as `external_degrader_legacy`.  The degrader code lives in the engine; this repository supplies the
+  clean matches and the sweeps.
+* **Validation protocols**: B' = 7 IDSSE leave-one-match-out under the calibrated degrader, seeds 0-2; A = PFF
+  held-out (4 folds) plus 8 PFF matches never used in training.
+
+## Sweeps done and upcoming
+
+| Sweep | Where | Status |
 |---|---|---|
-| Metrica Sports sample-data, Games 1–3 | Anonymised tracking (25 fps) + event data | Derived algorithmically from events (team of the last controlled event; dead between stoppage and restart) |
-| IDSSE Bundesliga open data (Bassek et al.) | Positional data + official events, 7 matches | Ball-status and possession channels shipped with the data |
-
-| SkillCorner Open Data (A-League 24/25, broadcast tracking 10 fps), 20 matches | `phases_of_play` (team in possession; gaps = dead; off-screen = `X`) |
-| PFF FC World Cup 2022, 64 matches (tracking 29.97 fps + event data; accepted terms, local only) | `OTB` owner / `OUT` dead / set-piece restarts from the event data |
-
-Licences, access and the steps for gated data: [docs/DATASETS.md](docs/DATASETS.md). Loaded with
-`kloppy` (Metrica, IDSSE) or plain JSON (SkillCorner, PFF). No labels are produced by hand.
-
+| Decoder parameters, heuristic route (Optuna TPE seed 0, 300 trials, 7 IDSSE degraded, nested LOMO) | `scripts/run_optuna_sweep.py`, `reports/optuna_heuristic*.{json,yaml}` | done, adopted in the engine (`route_overrides.heuristic`) |
+| Decoder parameters, specialists route | `reports/optuna_specialists*.{json,yaml}` | done twice (first sweep; refreshed after the window features, issue #3 / engine #31), adopted (`route_overrides.specialists`) |
+| Bounded decoder sweep under the calibrated degrader (nested LOMO seeds 0-1, blind seed 2, PFF guard) | issue #5 (engine #44) | **upcoming**, runs after engine #42 and #43 land |
 ## Quick start (exact commands)
 
 ```bash
