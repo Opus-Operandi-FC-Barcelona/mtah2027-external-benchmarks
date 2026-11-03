@@ -1,0 +1,10 @@
+strata [pff] base:
+  stratum  frames%  macroF1  trueD%  predD% predD%hid predD%vis  H/Aacc%  turn missed%
+  lt16         0.0   0.0000     nan     nan       nan       nan      nan     0     nan
+  lt20         0.0   0.0000     nan     nan       nan       nan      nan     0     nan
+  ge20       100.0   0.8656    41.1    42.2      67.0       7.5     83.1  5096    64.0
+strata [pff] lin75_r06:
+  stratum  frames%  macroF1  trueD%  predD% predD%hid predD%vis  H/Aacc%  turn missed%
+  lt16         0.0   0.0000     nan     nan       nan       nan      nan     0     nan
+  lt20         0.0   0.0000     nan     nan       nan       nan      nan     0     nan
+  ge20       100.0   0.8673    41.1    42.1      66.8       7.5     83.4  5096    62.9

@@ -41,7 +41,7 @@ from the competition match is in this repository.
 |---|---|---|
 | Decoder parameters, heuristic route (Optuna TPE seed 0, 300 trials, 7 IDSSE degraded, nested LOMO) | `scripts/run_optuna_sweep.py`, `reports/optuna_heuristic*.{json,yaml}` | done, adopted in the engine (`route_overrides.heuristic`) |
 | Decoder parameters, specialists route | `reports/optuna_specialists*.{json,yaml}` | done twice (first sweep; refreshed after the window features, issue #3 / engine #31), adopted (`route_overrides.specialists`) |
-| Bounded decoder sweep under the calibrated degrader (nested LOMO seeds 0-1, blind seed 2, PFF guard) | issue #5 (engine #44) | **upcoming**, runs after engine #42 and #43 land |
+| Bounded decoder sweep under the calibrated degrader (nested LOMO seeds 0-1, blind seed 2, PFF guard) | `reports/issue44/` (engine `scripts/decoder_sweep.py`) | done: best +0.0091 on B'(33) < +0.01, guards pass, **not adopted** (code + `--model-variant ensemble` kept OFF) |
 ## Quick start (exact commands)
 
 ```bash
