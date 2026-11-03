@@ -1,0 +1,55 @@
+== s1_b33 top 8
+baseline: base   (spellF1; d = mean delta vs baseline)
+candidate                                           b33       d
+ha_closed=-11.0                                  0.6711 +0.0019
+blend_hidden=0.0                                 0.6702 +0.0010
+ha_occluded=-5.5                                 0.6700 +0.0008
+scale_visible=0.65                               0.6699 +0.0007
+scale_hidden=1.1                                 0.6699 +0.0007
+scale_hidden=0.65                                0.6697 +0.0005
+touch_min_score=0.9                              0.6696 +0.0004
+micro_poss_s=0.6                                 0.6695 +0.0003
+== s2_b33 top 8
+baseline: base   (spellF1; d = mean delta vs baseline)
+candidate                                           b33       d
+r146                                             0.6766 +0.0074
+r079                                             0.6766 +0.0074
+r175                                             0.6766 +0.0074
+r172                                             0.6766 +0.0074
+r147                                             0.6764 +0.0072
+r213                                             0.6761 +0.0069
+r052                                             0.6759 +0.0067
+r061                                             0.6759 +0.0067
+== s3_b33 top 8
+baseline: base   (spellF1; d = mean delta vs baseline)
+candidate                                           b33       d
+c_sv0.75_hc-18.0_mp0.6_e1                        0.6775 +0.0083
+c_sv0.75_hc-22.0_mp0.6_e1                        0.6775 +0.0083
+c_sv0.75_hc-18.0_mp0.6_e2                        0.6773 +0.0081
+c_sv0.75_hc-22.0_mp0.6_e2                        0.6773 +0.0081
+c_sv0.75_hc-18.0_mp0.4_e1                        0.6772 +0.0080
+c_sv0.75_hc-22.0_mp0.4_e1                        0.6772 +0.0080
+c_sv0.75_hc-18.0_mp0.4_e2                        0.6771 +0.0078
+c_sv0.75_hc-22.0_mp0.4_e2                        0.6771 +0.0078
+== se_b33 top 8
+baseline: base   (spellF1; d = mean delta vs baseline)
+candidate                                           b33       d
+D1                                               0.6775 +0.0083
+lin:gap0.75+mixed+D1                             0.6775 +0.0082
+log:gap0.75+mixed+D1                             0.6769 +0.0077
+lin:gap0.75+calib+D1                             0.6755 +0.0063
+log:gap0.75+calib+D1                             0.6748 +0.0056
+lin:gap.5+mixed.25+calib.25+D1                   0.6735 +0.0043
+lin:gap0.5+calib+D1                              0.6734 +0.0042
+log:gap.5+mixed.25+calib.25+D1                   0.6731 +0.0039
+== s4_b33 top 8
+baseline: base   (spellF1; d = mean delta vs baseline)
+candidate                                           b33       d
+lin75_r06                                        0.6782 +0.0090
+lin75_r16                                        0.6776 +0.0084
+lin75_r38                                        0.6776 +0.0084
+gap_r11                                          0.6774 +0.0082
+lin75_r46                                        0.6773 +0.0081
+lin75_r33                                        0.6773 +0.0080
+lin75_r14                                        0.6772 +0.0080
+lin75_r71                                        0.6770 +0.0078

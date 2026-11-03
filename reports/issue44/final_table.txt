@@ -1,0 +1,56 @@
+baseline: base   (spellF1; d = mean delta vs baseline)
+candidate                                            b1       d      b33       d      pff       d   unseen       d
+lin75_r06                                        0.6085 +0.0068   0.6784 +0.0091   0.5360 +0.0097   0.5350 +0.0087
+lin:gap0.75+mixed+D1                             0.6088 +0.0071   0.6764 +0.0071   0.5333 +0.0071   0.5338 +0.0075
+D1                                               0.6046 +0.0029   0.6759 +0.0066   0.5322 +0.0059   0.5326 +0.0063
+gap_r11                                          0.6041 +0.0024   0.6757 +0.0064   0.5333 +0.0070   0.5346 +0.0083
+lin:gap0.75+calib+D1                             0.6077 +0.0061   0.6748 +0.0054   0.5351 +0.0088   0.5309 +0.0046
+lin:gap0.5+mixed+D1                              0.6095 +0.0078   0.6746 +0.0052   0.5325 +0.0062   0.5348 +0.0086
+base                                             0.6017 +0.0000   0.6693 +0.0000   0.5263 +0.0000   0.5263 +0.0000
+mixed_only                                       0.6047 +0.0030   0.6512 -0.0181   0.5231 -0.0032   0.5257 -0.0006
+calib_only                                       0.6073 +0.0056   0.6510 -0.0184   0.5300 +0.0037   0.5303 +0.0040
+-- base
+   b1: mean 0.6017 macro 0.8952 per seed {0: 0.6019, 1: 0.5991, 2: 0.6041} delta per seed {0: 0.0, 1: 0.0, 2: 0.0}
+   b33: mean 0.6693 macro 0.9206 per seed {0: 0.6709, 1: 0.6675, 2: 0.6695} delta per seed {0: 0.0, 1: 0.0, 2: 0.0}
+   pff: mean 0.5263 macro 0.8636 per seed {0: 0.5263} delta per seed {0: 0.0}
+   unseen: mean 0.5263 macro 0.8652 per seed {0: 0.5263} delta per seed {0: 0.0}
+-- D1
+   b1: mean 0.6046 macro 0.8959 per seed {0: 0.6048, 1: 0.6038, 2: 0.6052} delta per seed {0: 0.0029, 1: 0.0048, 2: 0.0011}
+   b33: mean 0.6759 macro 0.9214 per seed {0: 0.678, 1: 0.677, 2: 0.6728} delta per seed {0: 0.0071, 1: 0.0095, 2: 0.0033}
+   pff: mean 0.5322 macro 0.8642 per seed {0: 0.5322} delta per seed {0: 0.0059}
+   unseen: mean 0.5326 macro 0.8661 per seed {0: 0.5326} delta per seed {0: 0.0063}
+-- gap_r11
+   b1: mean 0.6041 macro 0.8961 per seed {0: 0.6042, 1: 0.6031, 2: 0.6049} delta per seed {0: 0.0022, 1: 0.0041, 2: 0.0009}
+   b33: mean 0.6757 macro 0.9216 per seed {0: 0.6793, 1: 0.6755, 2: 0.6723} delta per seed {0: 0.0084, 1: 0.008, 2: 0.0027}
+   pff: mean 0.5333 macro 0.8645 per seed {0: 0.5333} delta per seed {0: 0.007}
+   unseen: mean 0.5346 macro 0.8663 per seed {0: 0.5346} delta per seed {0: 0.0083}
+-- lin75_r06
+   b1: mean 0.6085 macro 0.8995 per seed {0: 0.6118, 1: 0.6097, 2: 0.6041} delta per seed {0: 0.0098, 1: 0.0107, 2: 0.0}
+   b33: mean 0.6784 macro 0.9224 per seed {0: 0.6822, 1: 0.6743, 2: 0.6787} delta per seed {0: 0.0113, 1: 0.0068, 2: 0.0091}
+   pff: mean 0.5360 macro 0.8654 per seed {0: 0.536} delta per seed {0: 0.0097}
+   unseen: mean 0.5350 macro 0.8676 per seed {0: 0.535} delta per seed {0: 0.0087}
+-- lin:gap0.75+mixed+D1
+   b1: mean 0.6088 macro 0.8992 per seed {0: 0.6124, 1: 0.6073, 2: 0.6067} delta per seed {0: 0.0105, 1: 0.0082, 2: 0.0027}
+   b33: mean 0.6764 macro 0.9218 per seed {0: 0.6759, 1: 0.679, 2: 0.6743} delta per seed {0: 0.005, 1: 0.0115, 2: 0.0048}
+   pff: mean 0.5333 macro 0.8642 per seed {0: 0.5333} delta per seed {0: 0.0071}
+   unseen: mean 0.5338 macro 0.8667 per seed {0: 0.5338} delta per seed {0: 0.0075}
+-- lin:gap0.5+mixed+D1
+   b1: mean 0.6095 macro 0.9013 per seed {0: 0.6115, 1: 0.6104, 2: 0.6065} delta per seed {0: 0.0096, 1: 0.0113, 2: 0.0024}
+   b33: mean 0.6746 macro 0.9212 per seed {0: 0.6733, 1: 0.6725, 2: 0.6779} delta per seed {0: 0.0024, 1: 0.005, 2: 0.0083}
+   pff: mean 0.5325 macro 0.8643 per seed {0: 0.5325} delta per seed {0: 0.0062}
+   unseen: mean 0.5348 macro 0.8670 per seed {0: 0.5348} delta per seed {0: 0.0086}
+-- lin:gap0.75+calib+D1
+   b1: mean 0.6077 macro 0.8991 per seed {0: 0.6109, 1: 0.6061, 2: 0.6063} delta per seed {0: 0.0089, 1: 0.007, 2: 0.0022}
+   b33: mean 0.6748 macro 0.9218 per seed {0: 0.6758, 1: 0.6752, 2: 0.6733} delta per seed {0: 0.0049, 1: 0.0077, 2: 0.0037}
+   pff: mean 0.5351 macro 0.8646 per seed {0: 0.5351} delta per seed {0: 0.0088}
+   unseen: mean 0.5309 macro 0.8664 per seed {0: 0.5309} delta per seed {0: 0.0046}
+-- mixed_only
+   b1: mean 0.6047 macro 0.9017 per seed {0: 0.6011, 1: 0.6055, 2: 0.6075} delta per seed {0: -0.0008, 1: 0.0065, 2: 0.0035}
+   b33: mean 0.6512 macro 0.9122 per seed {0: 0.6493, 1: 0.6501, 2: 0.6541} delta per seed {0: -0.0216, 1: -0.0174, 2: -0.0154}
+   pff: mean 0.5231 macro 0.8626 per seed {0: 0.5231} delta per seed {0: -0.0032}
+   unseen: mean 0.5257 macro 0.8648 per seed {0: 0.5257} delta per seed {0: -0.0006}
+-- calib_only
+   b1: mean 0.6073 macro 0.9038 per seed {0: 0.6125, 1: 0.6028, 2: 0.6068} delta per seed {0: 0.0105, 1: 0.0037, 2: 0.0027}
+   b33: mean 0.6510 macro 0.9121 per seed {0: 0.6558, 1: 0.6418, 2: 0.6553} delta per seed {0: -0.0151, 1: -0.0257, 2: -0.0142}
+   pff: mean 0.5300 macro 0.8640 per seed {0: 0.53} delta per seed {0: 0.0037}
+   unseen: mean 0.5303 macro 0.8673 per seed {0: 0.5303} delta per seed {0: 0.004}
