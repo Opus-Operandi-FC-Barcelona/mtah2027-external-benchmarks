@@ -32,7 +32,11 @@ from the competition match is in this repository.
   single-player dropouts (2.4 per min, 5-30 s) and group dropouts (0.5 per min, 3-6 players for 5-20 s).  The previous
   profile is kept as `external_degrader_legacy`.  The degrader code lives in the engine; this repository supplies the
   clean matches and the sweeps.
-* **Validation protocols**: B' = 7 IDSSE leave-one-match-out under the calibrated degrader, seeds 0-2; A = PFF
+* **Gap placement over dead ball (engine Issue #48).**  The calibrated profile can place the hidden-ball blocks
+  preferentially over dead-ball stretches (`dead_affinity`; 1 = blind to `D`).  A label-free estimator validated on
+  these matches (IDSSE with planted affinities, PFF, Metrica) puts the competition tracking well above random placement,
+  so the engine's default model is trained at `dead_affinity` 33 and evaluated on B'(33), with B'(1) and PFF as guards.
+* **Validation protocols**: B' = 7 IDSSE leave-one-match-out under the calibrated degrader, seeds 0-2 (B'(33) / B'(1) by gap placement); A = PFF
   held-out (4 folds) plus 8 PFF matches never used in training.
 
 ## Sweeps done and upcoming
